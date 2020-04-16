@@ -1,0 +1,23 @@
+extends ./layout/common
+block content
+    nav(class="navbar navbar-expand-lg navbar-light bg-info")
+        a(class="navbar-brand",href="/") 
+            img(src="/images/iu.jpg",width="40",height="40")
+        button(class="navbar-toggler",data-toggle="collapse",data-target="#navbarSupportedContent",aria-controls="navbarSupportedContent",aria-expanded="false",aria-label="Toggle navigation")
+            span.navbar-toggler-icon
+        div(class="collapse navbar-collapse",id="navbarSupportedContent")
+            ul.navbar-nav.mr-auto
+                li.nav-item
+                    a.nav-link(href='/') Home 
+                    //- span.sr-only (current)    
+                li.nav-item
+                    a.nav-link(href='/users/create') Create
+                li.nav-item
+                    a.nav-link(href='/users') Search        
+    h3 User
+    ul
+        each user in users
+            li 
+                span= user.name 
+                span &nbsp
+                a(href="/users/"+user.id) View
